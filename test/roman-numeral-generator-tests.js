@@ -39,9 +39,18 @@ describe('Test case conversion tests', () => {
     })
 })
 
-describe('Unsupported cases', function () {
+describe('Unsupported cases, input outside of 1-3999 range', function () {
     it('should return UNSUPPORTED when 0 is input', function () {
         var input = 0
+        var expected = 'UNSUPPORTED'
+
+        var result = numeralGenerator.generate(input)
+
+        assert.equal(result, expected)
+    })
+
+    it('should return UNSUPPORTED when 4000 is input', function () {
+        var input = 4000
         var expected = 'UNSUPPORTED'
 
         var result = numeralGenerator.generate(input)
