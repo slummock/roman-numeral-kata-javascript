@@ -1,4 +1,7 @@
 exports.generate = function (number) {
+    if (number < 1) {
+        return 'UNSUPPORTED'
+    }
     return numeralValues[number]
 }
 
