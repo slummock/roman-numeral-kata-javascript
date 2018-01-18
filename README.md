@@ -10,7 +10,7 @@ Implements a single class that converts a given number within the range of 1-399
 >npm run eslint
 
 ### Lint code w/ autofix:
->npm run eslint fix
+>npm run eslintfix
 
 ### Run Tests:
 >npm test
