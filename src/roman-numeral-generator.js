@@ -1,11 +1,9 @@
 exports.generate = function (number) {
-    if (number < 1) {
-        return 'UNSUPPORTED'
+    var romanNumeral = 'UNSUPPORTED'
+    if (validateInput(number)) {
+        romanNumeral = numeralValues[number]
     }
-    if (number > 3999) {
-        return 'UNSUPPORTED'
-    }
-    return numeralValues[number]
+    return romanNumeral
 }
 
 var numeralValues = {
@@ -16,4 +14,15 @@ var numeralValues = {
     100: 'C',
     500: 'D',
     1000: 'M'
+}
+
+function validateInput (number) {
+    var validInput = true
+    if (number < 1) {
+        validInput = false
+    }
+    if (number > 3999) {
+        validInput = false
+    }
+    return validInput
 }
