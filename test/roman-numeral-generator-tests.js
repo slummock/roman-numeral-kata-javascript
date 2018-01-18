@@ -10,4 +10,10 @@ describe('Conversion tests', () => {
         var expected = 'I'
         assert.equal(result, expected)
     })
+    it('should return "V" when 5 is input', () => {
+        var input = 5
+        var result = numeralGenerator.generate(input)
+        var expected = 'V'
+        assert.equal(result, expected)
+    })
 })
