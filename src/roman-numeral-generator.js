@@ -6,61 +6,31 @@ exports.generate = function (number) {
     return romanNumeral
 }
 
+var numeralValues = [
+    { number: 1000, symbol: 'M' },
+    { number: 900, symbol: 'CM' },
+    { number: 500, symbol: 'D' },
+    { number: 400, symbol: 'CD' },
+    { number: 100, symbol: 'C' },
+    { number: 90, symbol: 'XC' },
+    { number: 50, symbol: 'L' },
+    { number: 40, symbol: 'XL' },
+    { number: 10, symbol: 'X' },
+    { number: 9, symbol: 'IX' },
+    { number: 5, symbol: 'V' },
+    { number: 4, symbol: 'IV' },
+    { number: 1, symbol: 'I' }
+]
+
 function convertNumberToNumeral (number) {
-    var numeralValue = ''
-    while (number >= 1000) {
-        numeralValue += 'M'
-        number -= 1000
-    }
-    while (number >= 900) {
-        numeralValue += 'CM'
-        number -= 900
-    }
-    while (number >= 500) {
-        numeralValue += 'D'
-        number -= 500
-    }
-    while (number >= 400) {
-        numeralValue += 'CD'
-        number -= 400
-    }
-    while (number >= 100) {
-        numeralValue += 'C'
-        number -= 100
-    }
-    while (number >= 90) {
-        numeralValue += 'XC'
-        number -= 90
-    }
-    while (number >= 50) {
-        numeralValue += 'L'
-        number -= 50
-    }
-    while (number >= 40) {
-        numeralValue += 'XL'
-        number -= 40
-    }
-    while (number >= 10) {
-        numeralValue += 'X'
-        number -= 10
-    }
-    while (number >= 9) {
-        numeralValue += 'IX'
-        number -= 9
-    }
-    while (number >= 5) {
-        numeralValue += 'V'
-        number -= 5
-    }
-    while (number >= 4) {
-        numeralValue += 'IV'
-        number -= 4
-    }
-    while (number >= 1) {
-        numeralValue += 'I'
-        number -= 1
-    }
-    return numeralValue
+    var numeralResult = ''
+    numeralValues.forEach(function (numeralValue) {
+        while (number >= numeralValue.number) {
+            numeralResult += numeralValue.symbol
+            number -= numeralValue.number
+        }
+    })
+    return numeralResult
 }
 
 function validateInput (number) {
