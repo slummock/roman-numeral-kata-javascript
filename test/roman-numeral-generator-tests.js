@@ -15,11 +15,7 @@ describe('Conversion of each individual symbol', () => {
             { input: 1000, result: 'M' }
         ]
 
-    testCases.forEach(function (testCase) {
-        it('should return ' + testCase.result + ' when ' + testCase.input + ' is input', () => {
-            assert.equal(numeralGenerator.generate(testCase.input), testCase.result)
-        })
-    })
+    runNumberToNumeralTestCase(testCases)
 })
 
 describe('Conversion of Numeral with multiple symbols', () => {
@@ -33,11 +29,7 @@ describe('Conversion of Numeral with multiple symbols', () => {
             { input: 1300, result: 'MCCC' }
         ]
 
-    testCases.forEach(function (testCase) {
-        it('should return ' + testCase.result + ' when ' + testCase.input + ' is input', () => {
-            assert.equal(numeralGenerator.generate(testCase.input), testCase.result)
-        })
-    })
+    runNumberToNumeralTestCase(testCases)
 })
 
 describe('Conversion of Numeral with subtractive roman numerals', () => {
@@ -52,23 +44,23 @@ describe('Conversion of Numeral with subtractive roman numerals', () => {
             { input: 3999, result: 'MMMCMXCIX' }
         ]
 
-    testCases.forEach(function (testCase) {
-        it('should return ' + testCase.result + ' when ' + testCase.input + ' is input', () => {
-            assert.equal(numeralGenerator.generate(testCase.input), testCase.result)
-        })
-    })
+    runNumberToNumeralTestCase(testCases)
 })
 
 describe('Unsupported cases, input outside of 1-3999 range', function () {
     var testCases =
-    [
-        { input: 0, result: 'UNSUPPORTED' },
-        { input: 4000, result: 'UNSUPPORTED' }
-    ]
+        [
+            { input: 0, result: 'UNSUPPORTED' },
+            { input: 4000, result: 'UNSUPPORTED' }
+        ]
 
+    runNumberToNumeralTestCase(testCases)
+})
+
+function runNumberToNumeralTestCase (testCases) {
     testCases.forEach(function (testCase) {
         it('should return ' + testCase.result + ' when ' + testCase.input + ' is input', () => {
             assert.equal(numeralGenerator.generate(testCase.input), testCase.result)
         })
     })
-})
+}
