@@ -1,0 +1,27 @@
+Initial setup:
+Before I started on any coding I got my environment set up for myself, adding and configuring eslint to its standard style guide, modifying it to my own preferences for readability and prevented tests from being flagged incorrectly.
+Added Mocha and Chai for my Tests, Chai being overkill as I only ended up using assert for my tests.
+Setup my scripts in package.json so I could run my linting and tests easily.
+Finally initialising a local git repo so I could keep track of my own progress.
+
+Research:
+First started on the wikipedia page as linked.
+Went on to look up material myself and came across https://www.math.nmsu.edu/~pmorandi/math111f01/RomanNumerals.html which helped outline the restrictions to the problem as well as the approach to a solution.
+
+Doing the Kata:
+Approached the problem with TTD in mind, testing first, and refactoring in between adding functionality, and committing often when in a good state.
+First test written was to return 'I' when '1' was passed in, passing this test by simply returning 'I' regardless of input.
+Next bit of functionality was supporting each of the symbols individually themselves, creating a simple map to look up these values.
+It was at this point that I refactored my tests to make use of test cases rather than have each test be verbose/redundant.
+Then I added in the validation guards that return 'UNSUPPORTED' for values outside the range 1-3999. 
+Then added the support for multiple symbols to represent numbers in between, ignoring the caveat of no more than 3 of the same symbol consecutively.
+Final bit of functionality was adding support for subtractive notation preventing more than 3 of the same symbol consecutively.
+Went back to refactor the code, removing the redundant while loops for each numeral value, instead using a map to apply procedurally.
+Also cleaned up the tests to share a single function to feed test cases into as they all shared the same format.
+
+Afterthoughts:
+Extending the range of numerals it can support upto 39990000 represented by a vinculum (overline above the symbol) that represents the same number multiplied by 1000.
+The inverse to the problem could be added to convert numerals into numbers.
+Could add a simple server framework and turn it into an API + add a front end if desired.
+Code is synchronous, but for simple problem with no waiting on external data it's overkill to introduce promises to it.
+
