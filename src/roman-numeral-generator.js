@@ -1,9 +1,5 @@
 exports.generate = function (number) {
-    var romanNumeral = 'UNSUPPORTED'
-    if (validateInput(number)) {
-        romanNumeral = convertNumberToNumeral(number)
-    }
-    return romanNumeral
+    return validRange(number) ? convertNumberToNumeral(number) : 'UNSUPPORTED'  
 }
 
 var numeralValueMap = [
@@ -22,7 +18,7 @@ var numeralValueMap = [
     { number: 1, symbol: 'I' }
 ]
 
-function convertNumberToNumeral (number) {
+function convertNumberToNumeral(number) {
     var numeralResult = ''
     numeralValueMap.forEach(function (numeralValue) {
         while (number >= numeralValue.number) {
@@ -33,13 +29,6 @@ function convertNumberToNumeral (number) {
     return numeralResult
 }
 
-function validateInput (number) {
-    var validInput = true
-    if (number < 1) {
-        validInput = false
-    }
-    if (number > 3999) {
-        validInput = false
-    }
-    return validInput
+function validRange(number) {
+    return (number >= 1 && number <= 3999) ? true : false
 }
