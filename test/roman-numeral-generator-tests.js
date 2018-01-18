@@ -25,7 +25,30 @@ describe('Conversion of each individual symbol', () => {
 describe('Conversion of Numeral with multiple symbols', () => {
     var testCases =
         [
-            { input: 20, result: 'XX' }
+            { input: 20, result: 'XX' },
+            { input: 30, result: 'XXX' },
+            { input: 7, result: 'VII' },
+            { input: 55, result: 'LV' },
+            { input: 27, result: 'XXVII' },
+            { input: 1300, result: 'MCCC' }
+        ]
+
+    testCases.forEach(function (testCase) {
+        it('should return ' + testCase.result + ' when ' + testCase.input + ' is input', () => {
+            assert.equal(numeralGenerator.generate(testCase.input), testCase.result)
+        })
+    })
+})
+
+describe('Conversion of Numeral with subtractive roman numerals', () => {
+    var testCases =
+        [
+            { input: 4, result: 'IV' },
+            { input: 9, result: 'IX' },
+            { input: 40, result: 'XL' },
+            { input: 90, result: 'XC' },
+            { input: 400, result: 'CD' },
+            { input: 900, result: 'CM' }
         ]
 
     testCases.forEach(function (testCase) {

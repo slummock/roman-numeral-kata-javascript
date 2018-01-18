@@ -12,25 +12,49 @@ function convertNumberToNumeral (number) {
         numeralValue += 'M'
         number -= 1000
     }
+    while (number >= 900) {
+        numeralValue += 'CM'
+        number -= 900
+    }
     while (number >= 500) {
         numeralValue += 'D'
         number -= 500
+    }
+    while (number >= 400) {
+        numeralValue += 'CD'
+        number -= 400
     }
     while (number >= 100) {
         numeralValue += 'C'
         number -= 100
     }
+    while (number >= 90) {
+        numeralValue += 'XC'
+        number -= 90
+    }
     while (number >= 50) {
         numeralValue += 'L'
         number -= 50
+    }
+    while (number >= 40) {
+        numeralValue += 'XL'
+        number -= 40
     }
     while (number >= 10) {
         numeralValue += 'X'
         number -= 10
     }
+    while (number >= 9) {
+        numeralValue += 'IX'
+        number -= 9
+    }
     while (number >= 5) {
         numeralValue += 'V'
         number -= 5
+    }
+    while (number >= 4) {
+        numeralValue += 'IV'
+        number -= 4
     }
     while (number >= 1) {
         numeralValue += 'I'
