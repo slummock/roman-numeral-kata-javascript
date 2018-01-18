@@ -48,7 +48,8 @@ describe('Conversion of Numeral with subtractive roman numerals', () => {
             { input: 40, result: 'XL' },
             { input: 90, result: 'XC' },
             { input: 400, result: 'CD' },
-            { input: 900, result: 'CM' }
+            { input: 900, result: 'CM' },
+            { input: 3999, result: 'MMMCMXCIX' }
         ]
 
     testCases.forEach(function (testCase) {
