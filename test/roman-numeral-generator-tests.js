@@ -3,7 +3,15 @@ var assert = chai.assert
 
 var numeralGenerator = require('../src/roman-numeral-generator.js')
 
-describe('Conversion of each individual symbol', () => {
+function runNumberToNumeralTestCase (testCases) {
+    testCases.forEach(function (testCase) {
+        it('should return ' + testCase.result + ' when input is' + testCase.input, () => {
+            assert.equal(numeralGenerator.generate(testCase.input), testCase.result)
+        })
+    })
+}
+
+describe('Conversion of each individual numeral symbol', () => {
     var testCases =
         [
             { input: 1, result: 'I' },
@@ -18,7 +26,7 @@ describe('Conversion of each individual symbol', () => {
     runNumberToNumeralTestCase(testCases)
 })
 
-describe('Conversion of Numeral with multiple symbols', () => {
+describe('Conversion of numerals with multiple symbols', () => {
     var testCases =
         [
             { input: 20, result: 'XX' },
@@ -32,7 +40,7 @@ describe('Conversion of Numeral with multiple symbols', () => {
     runNumberToNumeralTestCase(testCases)
 })
 
-describe('Conversion of Numeral with subtractive roman numerals', () => {
+describe('Conversion of numerals with subtractive notation', () => {
     var testCases =
         [
             { input: 4, result: 'IV' },
@@ -56,11 +64,3 @@ describe('Unsupported cases, input outside of 1-3999 range', function () {
 
     runNumberToNumeralTestCase(testCases)
 })
-
-function runNumberToNumeralTestCase (testCases) {
-    testCases.forEach(function (testCase) {
-        it('should return ' + testCase.result + ' when ' + testCase.input + ' is input', () => {
-            assert.equal(numeralGenerator.generate(testCase.input), testCase.result)
-        })
-    })
-}
