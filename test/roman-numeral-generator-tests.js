@@ -60,21 +60,15 @@ describe('Conversion of Numeral with subtractive roman numerals', () => {
 })
 
 describe('Unsupported cases, input outside of 1-3999 range', function () {
-    it('should return UNSUPPORTED when 0 is input', function () {
-        var input = 0
-        var expected = 'UNSUPPORTED'
+    var testCases =
+    [
+        { input: 0, result: 'UNSUPPORTED' },
+        { input: 4000, result: 'UNSUPPORTED' }
+    ]
 
-        var result = numeralGenerator.generate(input)
-
-        assert.equal(result, expected)
-    })
-
-    it('should return UNSUPPORTED when 4000 is input', function () {
-        var input = 4000
-        var expected = 'UNSUPPORTED'
-
-        var result = numeralGenerator.generate(input)
-
-        assert.equal(result, expected)
+    testCases.forEach(function (testCase) {
+        it('should return ' + testCase.result + ' when ' + testCase.input + ' is input', () => {
+            assert.equal(numeralGenerator.generate(testCase.input), testCase.result)
+        })
     })
 })
