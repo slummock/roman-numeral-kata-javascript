@@ -7,16 +7,36 @@ exports.generate = function (number) {
 }
 
 function convertNumberToNumeral (number) {
-    var numeralValues = {
-        1: 'I',
-        5: 'V',
-        10: 'X',
-        50: 'L',
-        100: 'C',
-        500: 'D',
-        1000: 'M'
+    var numeralValue = ''
+    while (number >= 1000) {
+        numeralValue += 'M'
+        number -= 1000
     }
-    return numeralValues[number]
+    while (number >= 500) {
+        numeralValue += 'D'
+        number -= 500
+    }
+    while (number >= 100) {
+        numeralValue += 'C'
+        number -= 100
+    }
+    while (number >= 50) {
+        numeralValue += 'L'
+        number -= 50
+    }
+    while (number >= 10) {
+        numeralValue += 'X'
+        number -= 10
+    }
+    while (number >= 5) {
+        numeralValue += 'V'
+        number -= 5
+    }
+    while (number >= 1) {
+        numeralValue += 'I'
+        number -= 1
+    }
+    return numeralValue
 }
 
 function validateInput (number) {
