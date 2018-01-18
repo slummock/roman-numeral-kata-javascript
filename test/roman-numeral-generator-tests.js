@@ -17,3 +17,24 @@ describe('Conversion tests', () => {
         assert.equal(result, expected)
     })
 })
+
+describe('Test case conversion tests', () => {
+    var testCases =
+        [
+            { input: 1, result: 'I' },
+            { input: 5, result: 'V' },
+            { input: 10, result: 'X' },
+            { input: 20, result: 'XX' },
+            { input: 3999, result: 'MMMCMXCIX' }
+        ]
+
+    testCases.forEach(function (testCase) {
+        console.log(testCase)
+        it('should return ' + testCase.result + ' when ' + testCase.input + ' is input', () => {
+            var input = testCase.input
+            var result = numeralGenerator.generate(input)
+            var expected = testCase.result
+            assert.equal(result, expected)
+        })
+    })
+})
