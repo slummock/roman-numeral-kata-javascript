@@ -6,7 +6,7 @@ exports.generate = function (number) {
     return romanNumeral
 }
 
-var numeralValues = [
+var numeralValueMap = [
     { number: 1000, symbol: 'M' },
     { number: 900, symbol: 'CM' },
     { number: 500, symbol: 'D' },
@@ -24,7 +24,7 @@ var numeralValues = [
 
 function convertNumberToNumeral (number) {
     var numeralResult = ''
-    numeralValues.forEach(function (numeralValue) {
+    numeralValueMap.forEach(function (numeralValue) {
         while (number >= numeralValue.number) {
             numeralResult += numeralValue.symbol
             number -= numeralValue.number
