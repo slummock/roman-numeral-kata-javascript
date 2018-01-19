@@ -2,7 +2,7 @@ exports.generate = function (number) {
     return validRange(number) ? convertNumberToNumeral(number) : 'UNSUPPORTED'  
 }
 
-var numeralValueMap = [
+const numeralValueMap = [
     { number: 1000, symbol: 'M' },
     { number: 900, symbol: 'CM' },
     { number: 500, symbol: 'D' },
